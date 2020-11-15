@@ -16,11 +16,11 @@ class App extends Component {
     return (
       //Tendremos a AuthProvider englobando a todos los componentes
         //Pondremos un div con un className "container" que engloble a los componentes
-          //Importaremos el componente Navbar para mostrarlo en todas las páginas
+          //Renderizamos el componente Navbar para mostrarlo en todas las páginas
         
           //Usaremos Switch para englobar las rutas
             /*Por último, usamos el componente AnonRoute y PrivateRoute para añadirle un exact path y asignarles los componentes,
-            así como Signup y Login tienen que tener una ruta pública, Private tiene que tener una ruta privada*/
+            así como Signup y Login tienen que ser rutas públicas, Private tiene que ser una ruta privada*/
          
     );
   }

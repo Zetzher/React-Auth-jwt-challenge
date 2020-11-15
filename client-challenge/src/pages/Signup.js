@@ -1,29 +1,52 @@
 import React, { Component } from "react";
-import { withAuth } from "../lib/AuthProvider";
+import { Link } from "react-router-dom";
 
 class Signup extends Component {
   state = { email: "", password: "" };
 
   handleFormSubmit = async (event) => {
-   //Usamos un método para que no se vayan los datos al hacer submit
-    //Conseguimos email y password
-    //Llamamos al método login que nos lo provee nuestro withAuth y le pasaremos email y password
+    event.preventDefault();
+    const { email, password } = this.state;
+    console.log('Signup -> form submit', { email, password });
+    //this.props.signup({ email, password });
   };
 
   handleChange = (event) => {
-     //Cogemos el name y el value de lo que nos trae handleChange y lo seteamos al state
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   render() {
-     //Conseguimos email y password del state
-
-
-
+    const { email, password } = this.state;
     return (
-       //Hacemos un form que llame a un método para que haga el submit, así como los inputs que tengan un onChange que llame a otro método
-      //Aquí, al contrario que en login, haremos usaremos Link de react-router-dom para crear un link que nos redirija a login
+      <div>
+        <h1>Sign Up</h1>
+
+        <form onSubmit={this.handleFormSubmit}>
+          <label>Email:</label>
+          <input
+            type='text'
+            name='email'
+            value={email}
+            onChange={this.handleChange}
+          />
+
+          <label>Password:</label>
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={this.handleChange}
+          />
+
+          <input type='submit' value='Signup' />
+        </form>
+
+        <p>Already have account?</p>
+        <Link to={"/login"}> Login</Link>
+      </div>
     );
   }
 }
 
-export default withAuth(Signup);
+export default Signup;

@@ -73,28 +73,25 @@ class AuthProvider extends React.Component {
   }
 
   signup = (user) => {
-    //Conseguimos el email y el password de (user)
+    //Desestructuramos el email y el password de (user)
     //Invocamos a auth y usamos su método signup, le pasaremos email y password
-    //Entonces le decimos que con lo que recibimos del método lo sitúe en el state y creamos un catch en el que guarde los mensajes de error en un objeto.
+    //Seteamos la respuesta en el state y creamos un catch en el que guarde los mensajes de error (response.status, response.statusText, response.data.errorMessage) en un objeto 
   };
 
   login = (user) => {
-    //Conseguimos el email y el password de (user)
+    //Desestructuramos el email y el password de (user)
     //Invocamos a auth y usamos su método login, le pasaremos email y password
-    //Entonces le decimos que con lo que recibimos del método lo sitúe en el state y creamos un catch en el que guarde los mensajes de error en un objeto.
+    //Seteamos la respuesta en el state y creamos un catch en el que guarde los mensajes de error (response.status, response.statusText, response.data.errorMessage) en un objeto.
   };
 
   logout = () => {
     //Llamamos al método logout de auth
-    //Entonces le decimos que con lo que recibimos del método lo sitúe en el state y creamos un catch en el que guarde los mensajes de error en un objeto.
-    //Entonces le decimos que con lo que recibimos del método lo sitúe en el state y creamos un catch en el que guarde los mensajes de error en un objeto.
+    //Seteamos la respuesta en el state y creamos un catch en el que guarde los mensajes de error (response.status, response.statusText, response.data.errorMessage)en un objeto.
  
   };
 
   render() {
     // destructuramos isLoading, isLoggedin y user de this.state y login, logout y signup de this
-  
-    // nos traemos login, logout y signup de this y isLoading, isLoggedin y user de this.state
    
       // si está loading, devuelve un <div> y sino devuelve un componente <Provider> con un objeto con los valores: { isLoggedin, user, login, logout, signup}
       // el objeto pasado en la prop value estará disponible para todos los componentes <Consumer>

@@ -69,7 +69,7 @@ const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET_SESSION;
 
 const withAuth = function (req, res, next) {
-  // obtenemos el token de las cookies
+  // obtenemos el token de las cookies a través del objecto request
   const token = req.cookies.token;
   // si no hay token, devolvemos un error
   if (!token) {

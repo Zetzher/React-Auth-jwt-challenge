@@ -2,27 +2,30 @@ import axios from "axios";
 
 class Auth {
   constructor() {
-    //Crearemos el shorcut auth con this y creando un axios con el método create
-    //le añadimos la propiedad baseURL con nuestro link del server raíz y withCredentials con true
- 
+    this.auth = axios.create({
+      baseURL: 'http://localhost:4000',
+      withCredentials: true,
+    });
   }
 
-  signup() {
-    // le pasamos email y password a signup y hacemos que devuelva desde this.auth, con el método post llamamos a nuestra rua del back para enviar los datos
-  
+  signup({ email, password }) {
+    return this.auth
+      .post("/auth/signup", { email, password })
+      .then(({ data }) => data);
   }
 
-  login() {
-  // le pasamos email y password a signup y hacemos que devuelva desde this.auth, con el método post llamamos a nuestra rua del back para enviar los datos
-  
+  login({ email, password }) {
+    return this.auth
+      .post("/auth/login", { email, password })
+      .then(({ data }) => data);
   }
 
   logout() {
-    //Hacemos que devuelva un get del metodo auth para realizar un logout
+    return this.auth.get("/auth/logout", {}).then(({ data }) => data);
   }
 
   me() {
-    //Hacemos que devuelva un get del método auth para que acceda al me
+    return this.auth.get("/auth/me").then(({ data }) => data);
   }
 }
 

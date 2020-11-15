@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { withAuth } from "../lib/AuthProvider";
 
 class Private extends Component {
   render() {
     return (
-
-      //Crearemos un texto de bienvenida que contenga el nombre del user que está logueado
-     
+      <div>
+        <h1>Welcome </h1>
+      </div>
     );
   }
 }
 
-export default withAuth(Private);
+export default Private;
+
