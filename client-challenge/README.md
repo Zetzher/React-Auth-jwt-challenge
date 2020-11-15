@@ -330,7 +330,7 @@ class Private extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome {this.props.user.username}</h1> {/* 	<-- UPDATE HERE	      */}
+        <h1>Welcome {this.props.user.email}</h1> {/* 	<-- UPDATE HERE	      */}
       </div>
     );
   }
