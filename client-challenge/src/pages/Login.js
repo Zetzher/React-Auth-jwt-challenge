@@ -1,27 +1,49 @@
 import React, { Component } from "react";
-import { withAuth } from "../lib/AuthProvider";
 
 class Login extends Component {
   state = { email: "", password: "" };
 
   handleFormSubmit = (event) => {
-    //Usamos un método para que no se vayan los datos al hacer submit
-    //Conseguimos email y password
-    //Llamamos al método login que nos lo provee nuestro withAuth y le pasaremos email y password
+    event.preventDefault();
+    const { email, password } = this.state;
+    console.log('Login -> form submit', { email, password });
+    //this.props.login({ email, password });
   };
 
-  handleChange = () => {
-    //Cogemos el name y el value de lo que nos trae handleChange y lo seteamos al state
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   render() {
-    //Conseguimos email y password del state
+    const { email, password } = this.state;
 
     return (
-      //Hacemos un form que llame a un método para que haga el submit, así como los inputs que tengan un onChange que llame a otro método
-      
+      <div>
+        <h1>Login</h1>
+
+        <form onSubmit={this.handleFormSubmit}>
+          <label>Email:</label>
+          <input
+            type='text'
+            name='email'
+            value={email}
+            onChange={this.handleChange}
+          />
+
+          <label>Password:</label>
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={this.handleChange}
+          />
+
+          <input type='submit' value='Login' />
+        </form>
+      </div>
     );
   }
 }
 
-export default withAuth(Login);
+export default Login;
